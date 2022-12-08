@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">  
   <modelVersion>4.0.0</modelVersion>  
   <parent> 
@@ -42,7 +41,7 @@
           <schemaVersion>v2</schemaVersion>
           <subscriptionId>4388fa06-bf66-4497-82c2-991ba75ecb97</subscriptionId>
           <resourceGroup>ansalemo-rg</resourceGroup>
-          <appName>ansalemo-springboot-headers-test</appName>
+          <appName>ansalemo-java-remotedebug</appName>
           <pricingTier>F1</pricingTier>
           <region>eastus</region>
           <appServicePlanName>ansalemo-asp</appServicePlanName>
@@ -64,6 +63,34 @@
           </deployment>
         </configuration>
       </plugin>
+        <plugin>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-spring-apps-maven-plugin</artifactId>
+            <version>1.10.0</version>
+            <configuration>
+                <subscriptionId>4388fa06-bf66-4497-82c2-991ba75ecb97</subscriptionId>
+                <clusterName>ansalemo-spring-apps</clusterName>
+                <appName>ansalemo-springboot-logheaders</appName>
+                <isPublic>true</isPublic>
+                <deployment>
+                    <cpu>1</cpu>
+                    <memoryInGB>1</memoryInGB>
+                    <instanceCount>1</instanceCount>
+                    <runtimeVersion>Java 8</runtimeVersion>
+                    <resources>
+                        <resource>
+                            <filtering/>
+                            <mergeId/>
+                            <targetPath/>
+                            <directory>${project.basedir}/target</directory>
+                            <includes>
+                                <include>*.jar</include>
+                            </includes>
+                        </resource>
+                    </resources>
+                </deployment>
+            </configuration>
+        </plugin>
     </plugins> 
   </build> 
 </project>
