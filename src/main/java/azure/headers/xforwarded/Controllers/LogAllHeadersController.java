@@ -21,6 +21,6 @@ public class LogAllHeadersController {
             LOG.info(String.format("Header '%s' = %s", key, value));
         });
 
-        return new ResponseEntity<String>(String.format("Listing %d header(s)", headers.size()), HttpStatus.OK);
+        return new ResponseEntity<String>(String.format(headers, HttpStatus.OK);
     }
 }
