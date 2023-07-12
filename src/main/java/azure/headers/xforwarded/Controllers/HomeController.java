@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
-    static String message = "X-Forwaded-Application";
+    static String message = "Hit /list/headers to get actual values";
 
     @GetMapping("/")
     public static String index() {
